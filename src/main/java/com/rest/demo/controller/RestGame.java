@@ -25,9 +25,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rest.demo.dto.GameDto;
 import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.ValueException;
-import com.rest.demo.model.GameDto;
 import com.rest.demo.services.GameService;
 @RestController
 public class RestGame {

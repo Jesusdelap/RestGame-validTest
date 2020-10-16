@@ -8,8 +8,8 @@ import com.rest.demo.converters.GameConverter;
 import com.rest.demo.converters.GameDtoConverter;
 import com.rest.demo.dao.CrudGame;
 import com.rest.demo.dao.CrudGenre;
+import com.rest.demo.dto.GameDto;
 import com.rest.demo.model.Game;
-import com.rest.demo.model.GameDto;
 
 @SpringBootTest
 class RestGameValidTestApplicationTests {

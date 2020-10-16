@@ -3,8 +3,8 @@ package com.rest.demo.converters;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
+import com.rest.demo.dto.GameDto;
 import com.rest.demo.model.Game;
-import com.rest.demo.model.GameDto;
 //Pruebas NO usadas
 @Mapper(componentModel= "spring")
 public interface GameToGameDTOMapper {

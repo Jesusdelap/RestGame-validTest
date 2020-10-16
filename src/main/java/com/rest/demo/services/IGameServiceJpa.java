@@ -2,8 +2,8 @@ package com.rest.demo.services;
 
 import java.util.List;
 
+import com.rest.demo.dto.GameDto;
 import com.rest.demo.model.Game;
-import com.rest.demo.model.GameDto;
 
 public interface IGameServiceJpa {
 	

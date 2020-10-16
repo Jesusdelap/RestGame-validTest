@@ -7,9 +7,9 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
 import org.springframework.stereotype.Component;
 
+import com.rest.demo.dto.GameDto;
 import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.model.Game;
-import com.rest.demo.model.GameDto;
 import com.rest.demo.model.Genre;
 
 @Component

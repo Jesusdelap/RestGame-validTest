@@ -6,9 +6,9 @@ import java.util.HashMap;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.rest.demo.dto.GameDto;
 import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.GameDontExistException;
-import com.rest.demo.model.GameDto;
 
 @Service
 public class GameService  implements IGameService{

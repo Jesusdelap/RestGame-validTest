@@ -1,4 +1,4 @@
-package com.rest.demo.model;
+package com.rest.demo.dto;
 
 import java.util.ArrayList;
 

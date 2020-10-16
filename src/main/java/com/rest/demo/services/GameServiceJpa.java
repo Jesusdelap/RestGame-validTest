@@ -12,9 +12,9 @@ import com.rest.demo.converters.GameConverter;
 import com.rest.demo.converters.GameDtoConverter;
 import com.rest.demo.converters.GameToGameDTOMapper;
 import com.rest.demo.dao.CrudGame;
+import com.rest.demo.dto.GameDto;
 import com.rest.demo.exception.GameDontExistException;
 import com.rest.demo.model.Game;
-import com.rest.demo.model.GameDto;
 @Service
 public class GameServiceJpa  {
 
