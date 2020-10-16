@@ -25,9 +25,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.ValueException;
 import com.rest.demo.model.GameDto;
-import com.rest.demo.model.Genre;
 import com.rest.demo.services.GameService;
 @RestController
 public class RestGame {
@@ -80,7 +80,7 @@ public class RestGame {
 	
 	//retorna los generos de un juego
 	@GetMapping(value = "/getgenerosbygame")
-	public ResponseEntity<ArrayList<Genre>> getGenre(@RequestParam("name")String name){
+	public ResponseEntity<ArrayList<GenreEnum>> getGenre(@RequestParam("name")String name){
 		System.out.println(name);
 		return ResponseEntity.status(HttpStatus.OK).body(games.getbyname(name).getGeneros());
 

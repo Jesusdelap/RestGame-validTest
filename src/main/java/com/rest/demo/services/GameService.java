@@ -6,26 +6,26 @@ import java.util.HashMap;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.GameDontExistException;
 import com.rest.demo.model.GameDto;
-import com.rest.demo.model.Genre;
 
 @Service
 public class GameService  implements IGameService{
-	
+	// que game tenga el nombre como indice es porque el dto lo modifique para utilizarlo con los restJpa
 	private HashMap<String, GameDto> games = new HashMap<String, GameDto>();
 	
 	public GameService(){
-		ArrayList<Genre> g = new ArrayList<Genre>();
-		g.add(Genre.PUZLE);
-		ArrayList<Genre> g2 = new ArrayList<Genre>();
-		g2.add(Genre.TPS);
-		g2.add(Genre.MULTIJUGADOR);
+		ArrayList<GenreEnum> g = new ArrayList<GenreEnum>();
+		g.add(GenreEnum.PUZLE);
+		ArrayList<GenreEnum> g2 = new ArrayList<GenreEnum>();
+		g2.add(GenreEnum.TPS);
+		g2.add(GenreEnum.MULTIJUGADOR);
 		
-		games.put("tetris", new GameDto("tetris","dsadsadsa", 1967, "anonimo",g));
-		games.put("GTA5", new GameDto("GTA5","dsadsadsa", 2013, "rockstars",g2));
-		games.put("tre n", new GameDto("tre n","tre des", 2000, "tre dev"));
-		games.put("cua n", new GameDto("cua n","cua des", 2000, "cua dev"));
+		games.put("tetris", new GameDto((long) 1,"tetris","dsadsadsa", 1967,g));
+		games.put("GTA5", new GameDto((long) 2,"GTA5","dsadsadsa", 2013, g2));
+		games.put("tre n", new GameDto("tre n","tre des", 2000) );
+		games.put("cua n", new GameDto("cua n","cua des", 2000));
 
 	}
 

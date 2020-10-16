@@ -7,12 +7,11 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.rest.demo.model.Game;
 import com.rest.demo.model.GameDto;
+import com.rest.demo.model.Genre;
 
 public interface CrudGame extends CrudRepository<Game,Long> {
 
-
 	public List<Game> findByName(String name);
 	public List<Game> findByYear(int year);
-
 
 }

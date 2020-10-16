@@ -1,6 +1,7 @@
 package com.rest.demo.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -25,18 +26,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.ValueException;
 import com.rest.demo.model.Game;
 import com.rest.demo.model.GameDto;
 import com.rest.demo.model.Genre;
 import com.rest.demo.services.GameService;
 import com.rest.demo.services.GameServiceJpa;
+import com.rest.demo.services.GenreService;
 @RestController
 @RequestMapping("/jpa")
 public class RestGameJpa {
 	
 	@Autowired
 	GameServiceJpa  gameService;
+	@Autowired
+	GenreService  genreService;
 	
 	//buscar un juego por su id
 	@GetMapping(value = "/getGameById")
@@ -78,22 +83,23 @@ public class RestGameJpa {
 	
 	 //actualiza un juego
 	@PutMapping(value = "/game")
-	public ResponseEntity<String> putGame(@RequestBody Game game,Long id,BindingResult result) {
+	public ResponseEntity<String> putGame(@RequestBody GameDto game,BindingResult result) {
 		if(result.getErrorCount()==0) {
-			gameService.update(id,game);
+			gameService.update(game);
 			return ResponseEntity.status(HttpStatus.OK).body("Insertado correctamente");
 		}
 		throw new ValueException("Los campos tienen valores no permitidos ",result.getFieldErrors());
 		
 	}
 	
-	 /*retorna los generos de un juego
+	 
 	@GetMapping(value = "/getgenerosbygame")
-	public ResponseEntity<ArrayList<Genre>> getGenre(@RequestParam("name")String name){
+	public ResponseEntity<List<Game>> getGenre(@RequestBody GenreEnum genreE){
 		
-
+		
+		return ResponseEntity.status(HttpStatus.OK).body(genreService.findGamesByGenre(genreService.findGenreByGenreEnumm(genreE)));
 	}
-	*/
+	
 	
 	
 

@@ -10,9 +10,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.rest.demo.enums.GenreEnum;
+
 
 public class GameDto {
 
+	
+	private Long id;
 	@NotNull
 	@Size(min=2, max=32)
 	private String name;
@@ -22,25 +26,26 @@ public class GameDto {
 	
 	private int year;
 	
-	private String developers;
 	
-	private ArrayList<Genre> genre;
+	private ArrayList<GenreEnum> genre;
 	
 	
-	public GameDto(String name, String description, int year, String developers,ArrayList<Genre> generos) {
+
+
+	public GameDto(Long id, @NotNull @Size(min = 2, max = 32) String name, @Size(min = 4, max = 256) String description,
+			int year, ArrayList<GenreEnum> genre) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.year = year;
-		this.developers = developers;
-		this.genre = generos;
+		this.genre = genre;
 	}
-	public GameDto(String name, String description, int year, String developers) {
+	public GameDto(String name, String description, int year ) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.year = year;
-		this.developers = developers;
 	}
 	public GameDto() {
 		super();
@@ -63,23 +68,31 @@ public class GameDto {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public String getdevelopers() {
-		return developers;
-	}
-	public void setDevelopers(String developers) {
-		this.developers = developers;
-	}
-	public ArrayList<Genre> getGeneros() {
+
+	public ArrayList<GenreEnum> getGeneros() {
 		return genre;
 	}
-	public void setGeneros(ArrayList<Genre> generos) {
+	public void setGeneros(ArrayList<GenreEnum> generos) {
 		this.genre = generos;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public ArrayList<GenreEnum> getGenre() {
+		return genre;
+	}
+	public void setGenre(ArrayList<GenreEnum> genre) {
+		this.genre = genre;
 	}
 	@Override
 	public String toString() {
-		return "Game [name=" + name + ", description=" + description + ", year=" + year + ", developers=" + developers
-				+ ", generos=" + genre + "]";
+		return "GameDto [id=" + id + ", name=" + name + ", description=" + description + ", year=" + year + ", genre="
+				+ genre + "]";
 	}
+
 	
 	
 	
