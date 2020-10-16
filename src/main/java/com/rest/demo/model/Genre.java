@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rest.demo.enums.GenreEnum;
 
 @Entity
@@ -35,6 +36,7 @@ public class Genre implements Serializable{
     @Column(name = "enum")
 	private GenreEnum genreEnum;
     
+	@JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "genres")
     private List<Game> games = new ArrayList<>();
     

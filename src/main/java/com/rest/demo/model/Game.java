@@ -25,6 +25,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rest.demo.enums.GenreEnum;
 
 
@@ -47,7 +48,6 @@ public class Game implements Serializable{
 	private String description;
 	
 	private int year;
-	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
 			name = "game_genre", 
