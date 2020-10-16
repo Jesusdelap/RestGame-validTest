@@ -26,12 +26,8 @@ public class GameDto {
 	
 	private int year;
 	
-	
 	private ArrayList<GenreEnum> genre;
 	
-	
-
-
 	public GameDto(Long id, @NotNull @Size(min = 2, max = 32) String name, @Size(min = 4, max = 256) String description,
 			int year, ArrayList<GenreEnum> genre) {
 		super();

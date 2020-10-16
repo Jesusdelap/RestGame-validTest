@@ -22,7 +22,7 @@ import com.rest.demo.exception.ValueException;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
-public class GameController {
+public class ExceptionController {
 
 	@ExceptionHandler(ValueException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
