@@ -11,6 +11,8 @@ import com.rest.demo.converters.GameConverter;
 import com.rest.demo.converters.GameDtoConverter;
 import com.rest.demo.dao.CrudGame;
 import com.rest.demo.dao.CrudGenre;
+import com.rest.demo.dao.CrudShop;
+import com.rest.demo.dao.CrudShopGameStock;
 import com.rest.demo.dto.GameDto;
 import com.rest.demo.model.Game;
 import com.rest.demo.services.GenreService;
@@ -32,13 +34,15 @@ class RestGameValidTestApplicationTests {
 	@Autowired
 	CrudGenre repository2;
 	@Autowired
+	CrudShop repository3;
+	@Autowired
+	CrudShopGameStock repository4;
+	@Autowired
 	GenreService genserv;
 	@Test
 
 	void converter() {
-		ArrayList<GenreEnum> genEnu = new ArrayList<>();
-		genEnu.add(GenreEnum.TERROR);
-		//System.out.println(gc.getConverter(Game.class).convert(new GameDto((long) 1,"tre n","tre des", 2000,genEnu)));
+
 		System.out.println(gcc.getConverter(GameDto.class).convert(repository.findById((long) 1).get()));
 	}
 	@Test
@@ -53,7 +57,12 @@ class RestGameValidTestApplicationTests {
 	}
 	@Test
 
-	void genre2() {
-		System.out.println(genserv.findGenreByGenreEnum(GenreEnum.FPS));
+	void shopGameStock() {
+		System.out.println("shopgamestock----- "+repository4.findAll());
+	}
+	
+	@Test
+	void shop() {
+		System.out.println("shop---------- "+repository3.findAll());
 	}
 }

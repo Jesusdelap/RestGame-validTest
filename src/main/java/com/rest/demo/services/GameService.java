@@ -16,7 +16,7 @@ import com.rest.demo.dto.GameDto;
 import com.rest.demo.exception.GameDontExistException;
 import com.rest.demo.model.Game;
 @Service
-public class GameService  {
+public class GameService  implements IgameService{
 
 	@Autowired
 	CrudGame repository;
@@ -60,7 +60,7 @@ public class GameService  {
 	// Encontrar por id
 	public GameDto getById(long id) {
 		System.out.println(repository.findById(id).get());
-		if(repository.findById(id).isEmpty())
+		if(repository.existsById(id))
 			throw new GameDontExistException();		
 		  return gameDtoConverter.getConverter(GameDto.class).convert(repository.findById(id).get());
 	 }

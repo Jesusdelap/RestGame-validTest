@@ -5,12 +5,12 @@ import java.util.List;
 import com.rest.demo.dto.GameDto;
 import com.rest.demo.model.Game;
 
-public interface IGameServiceJpa {
+public interface IGameService {
 	
 
-	public List<Game> findAll();
-	public boolean add(Game game);
+	public List<GameDto> findAll();
+	public boolean add(GameDto game);
 	public boolean delete(Long id);
 	public GameDto getbyname(String name);
-	public Game getById(long id);
+	public GameDto getById(long id);
 }
