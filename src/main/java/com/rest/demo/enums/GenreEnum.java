@@ -14,8 +14,7 @@ public enum GenreEnum{
 	TPS(),
 	PUZLE(),
 	MOBA(),
-	MULTIJUGADOR();
-
+	MULTIJUGADOR(),
+	TERROR();
 	
-
 }

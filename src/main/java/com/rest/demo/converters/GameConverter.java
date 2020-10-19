@@ -32,10 +32,12 @@ public class GameConverter
 		public Game convert(GameDto source) {
 			List<Genre> list = new ArrayList<>();
 			for (GenreEnum genree : source.getGenre()) {
+				System.out.println(genree);
+				System.out.println(g.findGenreByGenreEnumm(genree));
 				list.add(g.findGenreByGenreEnumm(genree));
 			}
 			
-			return new Game(source.getId(),source.getName(),source.getDescription(),source.getYear());
+			return new Game(source.getId(),source.getName(),source.getDescription(),source.getYear(),list);
 
 		}
 

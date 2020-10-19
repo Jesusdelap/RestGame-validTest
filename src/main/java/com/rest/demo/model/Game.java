@@ -48,6 +48,7 @@ public class Game implements Serializable{
 	private String description;
 	
 	private int year;
+	@ElementCollection(targetClass = Genre.class)
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
 			name = "game_genre", 

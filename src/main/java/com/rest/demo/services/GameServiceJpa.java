@@ -30,10 +30,10 @@ public class GameServiceJpa  {
 		return (List<Game>) repository.findAll();
 	}
 	//Game post
-	public boolean add( Game game) {
+	public boolean add( GameDto game) {
 		
 		
-		repository.save(game);
+		repository.save(gameConverter.getConverter(Game.class).convert(game));
 		return true;
 	}
 	//game delete
@@ -47,12 +47,8 @@ public class GameServiceJpa  {
 	public boolean update(GameDto newGame) {
 		if(repository.existsById(newGame.getId()) )
 			throw new GameDontExistException();
-		Game game = repository.findById(newGame.getId()).get();
-		game.setName(newGame.getName());
-		game.setDescription(newGame.getDescription());
-		game.setYear(newGame.getYear());
 
-		repository.save(game);
+		repository.save(gameConverter.getConverter(Game.class).convert(newGame));
 		return true;
 	}
 	// Encontrar por nombre

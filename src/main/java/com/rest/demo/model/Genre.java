@@ -27,14 +27,14 @@ public class Genre implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idgenres;
 	
     @Enumerated(value = EnumType.STRING)
     @Column(name = "enum")
-	private GenreEnum genreEnum;
+	private GenreEnum genreEnum ;
     
 	@JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "genres")

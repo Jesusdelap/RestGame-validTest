@@ -14,11 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +28,6 @@ import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.ValueException;
 import com.rest.demo.model.Game;
 import com.rest.demo.model.Genre;
-import com.rest.demo.services.GameService;
 import com.rest.demo.services.GameServiceJpa;
 import com.rest.demo.services.GenreService;
 @RestController
@@ -64,7 +60,7 @@ public class RestGameJpa {
 	
 	//Añade un juego 
 	@PostMapping(value = "/game")
-	public ResponseEntity<String> postGame (@RequestBody @Valid Game game,BindingResult result ) {
+	public ResponseEntity<String> postGame (@RequestBody @Valid GameDto game,BindingResult result ) {
 		if(result.getErrorCount()==0) {
 			gameService.add(game);
 			return ResponseEntity.status(HttpStatus.OK).body("Añadido");
