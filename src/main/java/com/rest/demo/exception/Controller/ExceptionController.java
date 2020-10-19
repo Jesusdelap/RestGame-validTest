@@ -1,4 +1,4 @@
-package com.rest.demo.controller;
+package com.rest.demo.exception.Controller;
 
 import java.util.List;
 

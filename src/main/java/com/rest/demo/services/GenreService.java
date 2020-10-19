@@ -22,7 +22,7 @@ public class GenreService implements IGenreService {
 	}
 
 	@Override
-	public Genre findGenreByGenreEnumm(GenreEnum genreEnum) {
+	public Genre findGenreByGenreEnum(GenreEnum genreEnum) {
 		
 		return crudGenre.findGenreByGenreEnum(genreEnum);
 	}

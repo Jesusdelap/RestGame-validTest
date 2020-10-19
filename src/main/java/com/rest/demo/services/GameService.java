@@ -16,7 +16,7 @@ import com.rest.demo.dto.GameDto;
 import com.rest.demo.exception.GameDontExistException;
 import com.rest.demo.model.Game;
 @Service
-public class GameServiceJpa  {
+public class GameService  {
 
 	@Autowired
 	CrudGame repository;

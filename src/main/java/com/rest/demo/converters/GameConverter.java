@@ -26,18 +26,13 @@ public class GameConverter
 
 		
     private final class GameDtoToGame<T extends Game> implements Converter<GameDto, Game> {
-    	@Autowired
-    	GenreService g;
+
 		@Override
 		public Game convert(GameDto source) {
-			List<Genre> list = new ArrayList<>();
-			for (GenreEnum genree : source.getGenre()) {
-				System.out.println(genree);
-				System.out.println(g.findGenreByGenreEnumm(genree));
-				list.add(g.findGenreByGenreEnumm(genree));
-			}
 			
-			return new Game(source.getId(),source.getName(),source.getDescription(),source.getYear(),list);
+
+			
+			return new Game(source.getId(),source.getName(),source.getDescription(),source.getYear());
 
 		}
 

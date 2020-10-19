@@ -38,8 +38,13 @@ class RestGameValidTestApplicationTests {
 	void converter() {
 		ArrayList<GenreEnum> genEnu = new ArrayList<>();
 		genEnu.add(GenreEnum.TERROR);
-		System.out.println(gc.getConverter(Game.class).convert(new GameDto((long) 1,"tre n","tre des", 2000,genEnu)));
+		//System.out.println(gc.getConverter(Game.class).convert(new GameDto((long) 1,"tre n","tre des", 2000,genEnu)));
 		System.out.println(gcc.getConverter(GameDto.class).convert(repository.findById((long) 1).get()));
+	}
+	@Test
+
+	void converter2() {
+		System.out.println(gc.getConverter(Game.class).convert(new GameDto("tre n","tre des", 2000)));
 	}
 	@Test
 
@@ -49,6 +54,6 @@ class RestGameValidTestApplicationTests {
 	@Test
 
 	void genre2() {
-		System.out.println(genserv.findGenreByGenreEnumm(GenreEnum.FPS));
+		System.out.println(genserv.findGenreByGenreEnum(GenreEnum.FPS));
 	}
 }

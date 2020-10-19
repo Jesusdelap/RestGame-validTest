@@ -9,7 +9,7 @@ import com.rest.demo.model.Genre;
 public interface IGenreService {
 	
 	public List<Game> findGamesByGenre(Genre genre);
-	public Genre findGenreByGenreEnumm(GenreEnum genreEnum);
+	public Genre findGenreByGenreEnum(GenreEnum genreEnum);
 
 	
 

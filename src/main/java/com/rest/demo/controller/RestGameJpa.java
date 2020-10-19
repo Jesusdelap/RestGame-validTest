@@ -28,14 +28,14 @@ import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.ValueException;
 import com.rest.demo.model.Game;
 import com.rest.demo.model.Genre;
-import com.rest.demo.services.GameServiceJpa;
+import com.rest.demo.services.GameService;
 import com.rest.demo.services.GenreService;
 @RestController
 @RequestMapping("/jpa")
 public class RestGameJpa {
 	
 	@Autowired
-	GameServiceJpa  gameService;
+	GameService  gameService;
 	@Autowired
 	GenreService  genreService;
 	
@@ -66,8 +66,6 @@ public class RestGameJpa {
 			return ResponseEntity.status(HttpStatus.OK).body("Añadido");
 		}
 		throw new ValueException("Los campos tienen valores no permitidos ",result.getFieldErrors());
-			
-
 	}
 	
 	 //borra un juego al pasarle su nombre
@@ -91,9 +89,7 @@ public class RestGameJpa {
 	 
 	@GetMapping(value = "/getgenerosbygame")
 	public ResponseEntity<List<Game>> getGenre(@RequestBody GenreEnum genreE){
-		
-		
-		return ResponseEntity.status(HttpStatus.OK).body(genreService.findGamesByGenre(genreService.findGenreByGenreEnumm(genreE)));
+		return ResponseEntity.status(HttpStatus.OK).body(genreService.findGamesByGenre(genreService.findGenreByGenreEnum(genreE)));
 	}
 	
 	
