@@ -32,7 +32,7 @@ import com.rest.demo.services.GameService;
 import com.rest.demo.services.GenreService;
 @RestController
 @RequestMapping("/jpa")
-public class RestGameJpa {
+public class RestGame {
 	
 	@Autowired
 	GameService  gameService;
