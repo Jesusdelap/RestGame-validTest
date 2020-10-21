@@ -28,10 +28,10 @@ import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.exception.ValueException;
 import com.rest.demo.model.Game;
 import com.rest.demo.model.Genre;
-import com.rest.demo.services.GameService;
-import com.rest.demo.services.GenreService;
+import com.rest.demo.services.imp.GameService;
+import com.rest.demo.services.imp.GenreService;
 @RestController
-@RequestMapping("/jpa")
+@RequestMapping("/game")
 public class RestGame {
 	
 	@Autowired

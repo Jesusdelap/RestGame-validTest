@@ -12,10 +12,12 @@ import com.rest.demo.converters.GameDtoConverter;
 import com.rest.demo.dao.CrudGame;
 import com.rest.demo.dao.CrudGenre;
 import com.rest.demo.dao.CrudShop;
-import com.rest.demo.dao.CrudShopGameStock;
+import com.rest.demo.dao.CrudStock;
 import com.rest.demo.dto.GameDto;
+import com.rest.demo.dto.ShopDto;
 import com.rest.demo.model.Game;
-import com.rest.demo.services.GenreService;
+import com.rest.demo.services.imp.GenreService;
+import com.rest.demo.services.imp.ShopService;
 import com.rest.demo.enums.*;
 
 @SpringBootTest
@@ -36,11 +38,13 @@ class RestGameValidTestApplicationTests {
 	@Autowired
 	CrudShop repository3;
 	@Autowired
-	CrudShopGameStock repository4;
+	CrudStock repository4;
 	@Autowired
 	GenreService genserv;
-	@Test
-
+	@Autowired
+	ShopService shopService;
+	
+	/*@Test
 	void converter() {
 
 		System.out.println(gcc.getConverter(GameDto.class).convert(repository.findById((long) 1).get()));
@@ -55,14 +59,33 @@ class RestGameValidTestApplicationTests {
 	void genre() {
 		System.out.println(repository2.findAll());
 	}
-	@Test
 
-	void shopGameStock() {
-		System.out.println("shopgamestock----- "+repository4.findAll());
-	}
 	
 	@Test
 	void shop() {
-		System.out.println("shop---------- "+repository3.findAll());
+		System.out.println("shop---------- "+repository4.findAll());
+	}
+	
+	
+	@Test
+	void shop() {
+		ShopDto shop = new  ShopDto("Central","Plaza Fakenam");
+		System.out.println("find all---------- "+shopService.findAll());
+		System.out.println(" findById---------- "+shopService.findById((long) 1));
+		System.out.println(" add---------- "+shopService.put(shop));
+		System.out.println("findByName---------- "+shopService.findByName("Central"));
+		shop =shopService.findByName("Central");
+		shop.setName("Prueba");
+		System.out.println("Edit---------- "+shopService.put(shop));
+		System.out.println(" findByName---------- "+shopService.findByName("Prueba"));
+
+		System.out.println(" Delete---------- "+shopService.delete(shop.getIdshops()));
+
+
+
+	}*/
+	@Test
+	void shop() {
+		System.out.println("shop---------- "+repository4.findAll());
 	}
 }

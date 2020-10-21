@@ -12,11 +12,10 @@ import com.rest.demo.dto.GameDto;
 import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.model.Game;
 import com.rest.demo.model.Genre;
-import com.rest.demo.services.GenreService;
+import com.rest.demo.services.imp.GenreService;
 
 @Component
-public class GameConverter 
-  implements ConverterFactory< GameDto,Game> {
+public class GameConverter implements ConverterFactory< GameDto,Game> {
 
 
 	@Override

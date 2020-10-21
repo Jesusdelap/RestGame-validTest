@@ -1,4 +1,4 @@
-package com.rest.demo.services;
+package com.rest.demo.services.imp;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import com.rest.demo.dao.CrudGenre;
 import com.rest.demo.enums.GenreEnum;
 import com.rest.demo.model.Game;
 import com.rest.demo.model.Genre;
+import com.rest.demo.services.IGenreService;
 @Service
 public class GenreService implements IGenreService {
 

@@ -21,6 +21,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -55,8 +57,17 @@ public class Game implements Serializable{
 			joinColumns = @JoinColumn(name = "idgame"),
 			inverseJoinColumns = @JoinColumn(name = "idgenre")
 	)
-	private List<Genre> genres = new ArrayList<>() ; 
-    
+	private List<Genre> genres = new ArrayList<>() ;
+	public Game(Long idgames, @NotNull @Size(min = 2, max = 32) String name,
+			@Size(min = 4, max = 256) String description, int year, List<Genre> genres) {
+		super();
+		this.idgames = idgames;
+		this.name = name;
+		this.description = description;
+		this.year = year;
+		this.genres = genres;
+	}
+	
 	
 	public Game(Long idgames, @NotNull @Size(min = 2, max = 32) String name,
 			@Size(min = 4, max = 256) String description, int year) {
@@ -67,20 +78,9 @@ public class Game implements Serializable{
 		this.year = year;
 	}
 
+
 	public Game() {
 		super();
-	}
-	
-	
-	
-	public Game(Long idgames, @NotNull @Size(min = 2, max = 32) String name,
-			@Size(min = 4, max = 256) String description, int year, List<Genre> genres) {
-		super();
-		this.idgames = idgames;
-		this.name = name;
-		this.description = description;
-		this.year = year;
-		this.genres = genres;
 	}
 
 	public Long getIdgames() {
@@ -107,19 +107,24 @@ public class Game implements Serializable{
 	public void setYear(int year) {
 		this.year = year;
 	}
-	
 	public List<Genre> getGenres() {
 		return genres;
 	}
 	public void setGenres(List<Genre> genres) {
 		this.genres = genres;
 	}
-
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public String toString() {
 		return "Game [idgames=" + idgames + ", name=" + name + ", description=" + description + ", year=" + year
 				+ ", genres=" + genres + "]";
-	}
+	} 
+    
+
+
+	
 
 
 	

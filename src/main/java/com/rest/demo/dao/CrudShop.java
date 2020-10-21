@@ -8,6 +8,6 @@ import com.rest.demo.model.Shop;
 
 public interface CrudShop extends CrudRepository<Shop, Long> {
 
-	
+	public Shop findByName(String name);
 
 }

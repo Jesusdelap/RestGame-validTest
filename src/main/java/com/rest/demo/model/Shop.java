@@ -67,7 +67,8 @@ public class Shop implements Serializable{
 	public String toString() {
 		return "Shop [idshops=" + idshops + ", name=" + name + ", direccion=" + direccion + "]";
 	}
-	
+
+
 	
 
 	

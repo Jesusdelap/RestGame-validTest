@@ -1,6 +1,7 @@
-package com.rest.demo.services;
+package com.rest.demo.services.imp;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,8 +16,9 @@ import com.rest.demo.dao.CrudGame;
 import com.rest.demo.dto.GameDto;
 import com.rest.demo.exception.GameDontExistException;
 import com.rest.demo.model.Game;
+import com.rest.demo.services.IGameService;
 @Service
-public class GameService  implements IgameService{
+public class GameService  implements IGameService{
 
 	@Autowired
 	CrudGame repository;
@@ -26,8 +28,13 @@ public class GameService  implements IgameService{
 	GameDtoConverter gameDtoConverter;
 	
 	//Game get
-	public List<Game> findAll(){
-		return (List<Game>) repository.findAll();
+	public List<GameDto> findAll(){
+		List<Game> list =(List<Game>) repository.findAll();
+		List<GameDto> listDto =new ArrayList<>();
+		for (Game game : list) {
+			listDto.add(gameDtoConverter.getConverter(GameDto.class).convert(game));
+		}
+		return listDto;
 	}
 	//Game post
 	public boolean add( GameDto game) {
