@@ -16,7 +16,9 @@ public interface IStockService {
 	public List<StockDto> findByGamesAndShops(GameDto games,ShopDto shops);
 	public List<StockDto> findAll();
 	public boolean put(StockDto shop);
+	public boolean put(Stock stock);
 	public boolean delete(Long id);
 	public StockDto findById(Long id);
+	public boolean changeStockInt(Long id,Integer amount);
 
 }

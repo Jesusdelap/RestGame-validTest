@@ -28,43 +28,41 @@ public class RestStocks {
 	IStockService  stockService;
 	@Autowired
 	IGameService  gameService;
+	@Autowired
+	IShopService  shopService;
 	//busca los juegos en una tienda
 	@GetMapping(value = "/findByShop")
 	public ResponseEntity<Object> findByShop(@RequestParam("id")Long id) {
-	
 		return ResponseEntity.status(HttpStatus.OK).body(stockService.findByGame(gameService.getById(id)));
 	}
 	
 	//busca las tiendas en las que hay un juego
 	@GetMapping(value = "/findByGame")
 	public ResponseEntity<Object> findByGame(@RequestParam("id")Long id) {
-	
-		return ResponseEntity.status(HttpStatus.OK).body(null);
+		return ResponseEntity.status(HttpStatus.OK).body(stockService.findByShop(shopService.findById(id)));
 	}
 	
 	//Modifica el numero de articulos de un stock 
 	@PostMapping(value = "/changeStockInt")
-	public ResponseEntity<Object> changeStockInt(@RequestBody Long id, int cantidad) {
-		return ResponseEntity.status(HttpStatus.OK).body(null);
+	public ResponseEntity<Object> changeStockInt(@RequestBody Long id, Integer amount) {
+		return ResponseEntity.status(HttpStatus.OK).body(stockService.changeStockInt(id, amount));
 	}
 	
 	//Retorna todos los stocks
 	@GetMapping(value = "/stock")
 	public ResponseEntity<List<StockDto>> getStock() {
-		return ResponseEntity.status(HttpStatus.OK).body(null);
+		return ResponseEntity.status(HttpStatus.OK).body(stockService.findAll());
 	}
 	
 	//Añade stock
 	@PutMapping(value = "/stock")
 	public ResponseEntity<Object> getStock(@RequestBody StockDto stock) {
-	
-		return ResponseEntity.status(HttpStatus.OK).body(null);
+		return ResponseEntity.status(HttpStatus.OK).body(stockService.put(stock));
 	}
 
 	//Borra un stock por id
 	@DeleteMapping(value = "/stock")
 	public ResponseEntity<Object> deleteStock(@RequestParam("id")Long id) {
-	
-		return ResponseEntity.status(HttpStatus.OK).body(null);
+		return ResponseEntity.status(HttpStatus.OK).body(stockService.delete(id));
 	}
 }

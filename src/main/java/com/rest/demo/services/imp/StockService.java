@@ -78,10 +78,13 @@ public class StockService implements IStockService {
 
 	@Override
 	public boolean put(StockDto stock) {
-		repository.save(stockConverter.convert(stock));
+		return 	put(stockConverter.convert(stock));
+	}
+	@Override
+	public boolean put(Stock stock) {
+		repository.save(stock);
 		return true;
 	}
-
 	@Override
 	public boolean delete(Long id) {
 		
@@ -95,9 +98,17 @@ public class StockService implements IStockService {
 
 	@Override
 	public StockDto findById(Long id) {
-		// TODO Auto-generated method stub
+
 		return stockDtoConverter.convert(repository.findById(id).get());
 	}
+
+	@Override
+	public boolean changeStockInt(Long id, Integer amount) {
+		Stock  s = repository.findById(id).get();
+		s.setStock(s.getStock()+amount);
+		return put(s);
+	}
+	
 
 
 
